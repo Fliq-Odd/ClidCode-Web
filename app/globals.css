@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-bg-base: #050505;
+  --color-surface-elevated: #0f0f11;
+  --color-border-elevated: #1f1f24;
+  --color-accent-mint: #00ffa2;
+  --color-accent-crimson: #ff3366;
+  --color-text-primary: #f3f4f6;
+  --color-text-muted: #8b8b99;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-outfit), sans-serif;
+  --font-display: var(--font-syne), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #050505;
+  color: #f3f4f6;
+  font-family: var(--font-outfit), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism panel preset */
+.glass-panel {
+  backdrop-filter: blur(12px);
+  background: rgba(15, 15, 17, 0.65);
+  border: 1px solid rgba(31, 31, 36, 0.7);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(20, 20, 24, 0.8);
+  border-color: rgba(0, 255, 162, 0.35);
+  box-shadow: 0 0 30px rgba(0, 255, 162, 0.03);
+}
+
+/* SVG blueprint-style architect matrix grid */
+.bg-grid-matrix {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.03'/%3E%3Cpath d='M 30 0 L 30 60 M 0 30 L 60 30' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.012'/%3E%3Ccircle cx='0' cy='0' r='1.5' fill='%23ffffff' opacity='0.15'/%3E%3Ccircle cx='30' cy='30' r='1' fill='%23ffffff' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Monospace font ligature adjustments */
+.font-mono {
+  font-variant-ligatures: normal;
+  font-feature-settings: "liga" on, "calt" on;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f24;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00ffa2;
+}
+
+/* Custom glow animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 8s infinite ease-in-out;
+}
+
+/* Subtle dash movement for SVG lines */
+@keyframes dash-scroll {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+.animate-dash-scroll {
+  stroke-dasharray: 5;
+  animation: dash-scroll 1s linear infinite;
+}
+
+/* Custom terminal prompt styling */
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background: #00ffa2;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
