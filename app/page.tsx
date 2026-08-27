@@ -553,7 +553,7 @@ export default function Home() {
             className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full justify-center"
           >
             <a
-              href="https://github.com/Fliq-Odd/cliq-code/releases/download/v0.1.0/cliq-code.exe"
+              href="https://github.com/Fliq-Odd/cliq-code/releases/download/v0.1.2/cliq-code.exe"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-8 py-4 rounded-lg bg-[#00FFA2] hover:bg-[#050505] text-[#050505] hover:text-[#00FFA2] border border-[#00FFA2] transition-all duration-300 text-sm font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,255,162,0.25)] hover:shadow-[0_0_35px_rgba(0,255,162,0.45)] group text-center"
@@ -1263,7 +1263,7 @@ export default function Home() {
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="text-xs font-mono text-[#00FFA2] uppercase tracking-wider font-bold">Step 1: Download Pre-compiled Binary</h4>
                       <a
-                        href="https://github.com/Fliq-Odd/cliq-code/releases/download/v0.1.0/cliq-code.exe"
+                        href="https://github.com/Fliq-Odd/cliq-code/releases/download/v0.1.2/cliq-code.exe"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-3 py-1.5 rounded bg-[#1F1F24] hover:bg-[#00FFA2] text-[#8B8B99] hover:text-[#050505] text-[11px] font-mono border border-[#1F1F24] transition-all duration-300 flex items-center gap-1.5 hover:shadow-[0_0_15px_rgba(0,255,162,0.3)]"
