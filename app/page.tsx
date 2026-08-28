@@ -6,18 +6,13 @@ import {
   Terminal,
   Shield,
   Cpu,
-  Layers,
   FolderTree,
   Database,
   Sparkles,
   Copy,
   Check,
-  ExternalLink,
-  Sliders,
   Settings,
-  Key,
   RefreshCw,
-  Play,
   Code,
   Lock,
   AlertTriangle,
@@ -25,7 +20,6 @@ import {
   ChevronRight,
   ChevronDown,
   Info,
-  Server,
   FileCode,
   CheckCircle2,
   Download,
@@ -196,7 +190,6 @@ const securityModes = [
 ];
 
 export default function Home() {
-  const [copiedText, setCopiedText] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -242,12 +235,10 @@ export default function Home() {
 
   // Terminal Simulation Engine
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-    
     const runSimulation = async () => {
       // Step 0: Initial prompt type
       if (terminalStep === 0) {
-        let text = "python -m src_python.main";
+        const text = "python -m src_python.main";
         let current = "";
         for (let i = 0; i < text.length; i++) {
           await new Promise((resolve) => setTimeout(resolve, 60));
@@ -271,7 +262,7 @@ export default function Home() {
       // Step 1: User types inquiry
       else if (terminalStep === 1) {
         await new Promise((resolve) => setTimeout(resolve, 1000));
-        let text = "help me refactor the login function in src/auth.py";
+        const text = "help me refactor the login function in src/auth.py";
         let current = "";
         for (let i = 0; i < text.length; i++) {
           await new Promise((resolve) => setTimeout(resolve, 50));
@@ -310,7 +301,7 @@ export default function Home() {
       // Step 3: User approves
       else if (terminalStep === 3) {
         await new Promise((resolve) => setTimeout(resolve, 1500));
-        let text = "Y";
+        const text = "Y";
         setTerminalInput(text);
         await new Promise((resolve) => setTimeout(resolve, 400));
         setTerminalHistory((prev) => {
@@ -344,12 +335,6 @@ export default function Home() {
     setTerminalHistory([]);
     setTerminalInput("");
     setTerminalStep(0);
-  };
-
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedText(true);
-    setTimeout(() => setCopiedText(false), 2000);
   };
 
   const copyStepCommand = (text: string, index: number) => {
@@ -1026,7 +1011,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <p className="text-sm text-[#8B8B99] leading-relaxed">
-                    The command-line interface uses Python's <code>rich</code> library to print high-resolution diagnostic tables, syntax highlights, and markdown formats directly onto local TTY terminals.
+                    The command-line interface uses Python&apos;s <code>rich</code> library to print high-resolution diagnostic tables, syntax highlights, and markdown formats directly onto local TTY terminals.
                   </p>
                   <ul className="mt-3 space-y-1.5 text-xs text-[#F3F4F6] font-mono">
                     <li>• Rich colors and markdown integration</li>
@@ -1070,7 +1055,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <p className="text-sm text-[#8B8B99] leading-relaxed">
-                    Translates data types seamlessly between Python's standard types (dicts, strings, lists) and C++'s native formats (std::string, std::vector, std::map) with zero latency overhead.
+                    Translates data types seamlessly between Python&apos;s standard types (dicts, strings, lists) and C++&apos;s native formats (std::string, std::vector, std::map) with zero latency overhead.
                   </p>
                   <ul className="mt-3 space-y-1.5 text-xs text-[#F3F4F6] font-mono">
                     <li>• Bindings declared in <code>src_cpp/bindings/pybind_module.cpp</code></li>
@@ -1078,11 +1063,11 @@ export default function Home() {
                   </ul>
                 </div>
                 <div className="p-4 rounded bg-[#050505] border border-[#1F1F24] font-mono text-xs">
-                  <div className="text-purple-400">// src_cpp/bindings/pybind_module.cpp</div>
+                  <div className="text-purple-400">{"// src_cpp/bindings/pybind_module.cpp"}</div>
                   <div className="text-neutral-500">#include &lt;pybind11/pybind11.h&gt;</div>
                   <div className="text-neutral-500">PYBIND11_MODULE(cliq_engine, m) &#123;</div>
-                  <div className="text-neutral-500">    m.def("enforce_permission", &amp;enforce_permission);</div>
-                  <div className="text-neutral-500">    m.def("validate_bash", &amp;validate_bash);</div>
+                  <div className="text-neutral-500">{"    m.def(\"enforce_permission\", &enforce_permission);"}</div>
+                  <div className="text-neutral-500">{"    m.def(\"validate_bash\", &validate_bash);"}</div>
                   <div className="text-[#00FFA2]">&#125;</div>
                 </div>
               </div>
@@ -1101,7 +1086,7 @@ export default function Home() {
                   </ul>
                 </div>
                 <div className="p-4 rounded bg-[#050505] border border-[#1F1F24] font-mono text-xs">
-                  <div className="text-purple-400">// src_cpp/include/cliq-code/permission_enforcer.hpp</div>
+                  <div className="text-purple-400">{"// src_cpp/include/cliq-code/permission_enforcer.hpp"}</div>
                   <div className="text-neutral-500">enum class PermissionMode &#123;</div>
                   <div className="text-neutral-500">    READ_ONLY, WORKSPACE_WRITE, PROMPT, ALLOW, DANGER_FULL</div>
                   <div className="text-neutral-500">&#125;;</div>
@@ -1273,7 +1258,7 @@ export default function Home() {
                       </a>
                     </div>
                     <p className="text-xs text-[#8B8B99] mt-1 leading-relaxed">
-                      Download the standalone binary directly. Move it to an installation folder (e.g. <code className="text-white">C:\Program Files\cliq-code</code>) and append that directory path to your system's <code className="text-white">PATH</code> environment variable.
+                      Download the standalone binary directly. Move it to an installation folder (e.g. <code className="text-white">C:\Program Files\cliq-code</code>) and append that directory path to your system&apos;s <code className="text-white">PATH</code> environment variable.
                     </p>
                   </div>
 

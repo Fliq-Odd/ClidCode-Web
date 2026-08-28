@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Syne, Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -40,7 +41,10 @@ export default function RootLayout({
       lang="en"
       className={`${syne.variable} ${outfit.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#050505] text-[#F3F4F6]">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#050505] text-[#F3F4F6]">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
