@@ -406,7 +406,7 @@ export default function Home() {
 
       {/* Floating Header Navigation */}
       <header className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-        <nav className="glass-panel w-full max-w-3xl rounded-full px-6 py-3 flex items-center justify-between shadow-2xl border-[#1F1F24]/80">
+        <nav aria-label="Primary navigation" className="glass-panel w-full max-w-3xl rounded-full px-6 py-3 flex items-center justify-between shadow-2xl border-[#1F1F24]/80">
           <div className="flex items-center gap-2">
             <div className="w-3.5 h-3.5 bg-[#00FFA2] rounded-full shadow-[0_0_10px_rgba(0,255,162,0.6)] animate-pulse" />
             <span className="font-display font-extrabold text-sm tracking-tight text-white">
@@ -494,6 +494,7 @@ export default function Home() {
         </AnimatePresence>
       </header>
 
+      <main>
       {/* Hero Section */}
       <section className="pt-24 pb-20 md:pt-32 md:pb-24 max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
         {/* Decorative ambient ring */}
@@ -1024,7 +1025,7 @@ export default function Home() {
                   <div className="text-neutral-500 mt-2">from rich.console import Console</div>
                   <div className="text-neutral-500">from rich.panel import Panel</div>
                   <div className="text-neutral-500 mt-2">console = Console()</div>
-                  <div className="text-[#00FFA2]">console.print(Panel("[bold green]Safety Catch: ACTIVE[/bold green]"))</div>
+                  <div className="text-[#00FFA2]">console.print(Panel(&quot;[bold green]Safety Catch: ACTIVE[/bold green]&quot;))</div>
                 </div>
               </div>
             )}
@@ -1447,6 +1448,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer className="py-12 border-t border-[#1F1F24] relative z-10 bg-[#070709]">
